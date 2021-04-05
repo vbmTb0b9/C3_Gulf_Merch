@@ -1,0 +1,299 @@
+html {
+  font-family: 'Helvetica Neue';
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  height: 100%;
+  background-color: #2E2E2E;
+  color: #ffffff;
+}
+
+.scroll-ico {
+  content: " ";
+  background: url(/img/double-chevron-down.svg) no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 19px;
+  display: block;
+  margin: auto;
+  -webkit-animation: scrollAnimate ease-out 1s;
+          animation: scrollAnimate ease-out 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes "scrollAnimate" {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+  22% {
+    -webkit-transform: translate(0px, -10px);
+            transform: translate(0px, -10px);
+  }
+  50% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+  75% {
+    -webkit-transform: translate(0px, -5px);
+            transform: translate(0px, -5px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+}
+
+@keyframes "scrollAnimate" {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+  22% {
+    -webkit-transform: translate(0px, -10px);
+            transform: translate(0px, -10px);
+  }
+  50% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+  75% {
+    -webkit-transform: translate(0px, -5px);
+            transform: translate(0px, -5px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translateX(70vw);
+            transform: translateX(70vw);
+  }
+  100% {
+    -webkit-transform: translateX(-61vw);
+            transform: translateX(-61vw);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(70vw);
+            transform: translateX(70vw);
+  }
+  100% {
+    -webkit-transform: translateX(-61vw);
+            transform: translateX(-61vw);
+  }
+}
+
+#head {
+  background: url("/img/HeroBanner-Desktop-16_9_1920x1080.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 95vh;
+  width: auto;
+  position: relative;
+}
+
+#head .scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+}
+
+#head .scroll-down a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#head .scroll-down a span {
+  color: #606060;
+}
+
+#head .scroll-down a span::before {
+  content: " ";
+  background: #606060;
+  width: 1px;
+  height: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+#head .scroll-down a span::after {
+  content: " ";
+  background: #606060;
+  width: 1px;
+  height: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+
+.scrolling-box {
+  background: #2e2e2e;
+  height: 100%;
+  width: auto;
+  overflow-x: hidden;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  z-index: 3;
+  position: relative;
+}
+
+.scrolling-box .title-box {
+  border-right: 2px solid #ffffff;
+  background: #000000;
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 16px 48px;
+  height: 100%;
+}
+
+.scrolling-box .scrolling-text {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 16px 48px;
+}
+
+.scrolling-box .scrolling-text span {
+  -webkit-animation: scroll 30s linear infinite;
+          animation: scroll 30s linear infinite;
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.scrolling-box .scrolling-text span:hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+@-webkit-keyframes moveSlideshow {
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@keyframes moveSlideshow {
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+.slide-box {
+  max-width: 100vw;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+          transform: translate3d(0px, 0px, 0px);
+  overflow-x: hidden;
+  padding: 7.5rem 0px 7.5rem;
+}
+
+.carousel-wrap {
+  height: 100%;
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+          transform: translate3d(0px, 0px, 0px);
+  width: calc(8 * 450px);
+  -webkit-animation: 50s linear 0s infinite normal none running moveSlideshow;
+          animation: 50s linear 0s infinite normal none running moveSlideshow;
+}
+
+.carousel-wrap:hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.carousel-item {
+  margin: 0px 1rem;
+  min-width: 800px;
+  position: relative;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.carousel-item .carousel-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+}
+
+.carousel-item .carousel-title h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.carousel-item .carousel-title .item-price {
+  margin: 20px auto 0 auto;
+}
+
+.carousel-item .carousel-title .preOrder-btn {
+  padding: 9px 10px;
+  display: block;
+  background: red;
+  max-width: 150px;
+  margin: 20px auto 0 auto;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+.carousel-item:hover::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.24);
+  opacity: 1;
+}
+
+.carousel-item:hover .carousel-title {
+  opacity: 1;
+}
+
+.carousel-item:nth-child(odd) {
+  border: 1px solid red;
+  margin-top: 2rem;
+  -webkit-box-shadow: 0px 10px 50px 5px #00000014;
+          box-shadow: 0px 10px 50px 5px #00000014;
+}
+/*# sourceMappingURL=stylesheet.css.map */

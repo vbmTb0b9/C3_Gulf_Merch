@@ -1,0 +1,228 @@
+html { font-family: 'Helvetica Neue'; }
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+    font-size: 16px;
+  }
+  
+  body {
+    height: 100%;
+    background-color: #2E2E2E;
+    color: #ffffff;
+  }
+
+  @mixin hoverPause {
+    &:hover {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+    }
+  }
+
+  .scroll-ico {
+      content:" ";
+      background: url(/img/double-chevron-down.svg) no-repeat;
+      background-size: 100%;
+      width: 16px;
+      height: 19px;
+      display: block;
+      margin: auto;
+      animation: scrollAnimate ease-out 1s;
+      animation-iteration-count: infinite;
+      transform-origin: 50% 50%;
+  }
+  @keyframes "scrollAnimate" {
+	0% {
+		transform: translate(0px,0px);
+	}
+	22% {
+		transform: translate(0px,-10px);
+	}
+	50% {
+		transform: translate(0px,0px);
+	}
+	75% {
+		transform: translate(0px,-5px);
+	}
+	100% {
+		transform: translate(0px,0px);
+	}
+}
+$animationSpeed: 30s;
+
+// Animation
+@keyframes scroll {
+	0% {
+		transform: translateX(70vw);
+	}
+	100% {
+		transform: translateX(-61vw);
+	}
+}
+  #head {
+    background: url('/img/HeroBanner-Desktop-16_9_1920x1080.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 95vh;
+    width: auto;
+    position: relative;
+    .scroll-down {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        text-align: center;
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            span {
+                color: #606060;
+                &::before {
+                    content: " ";
+                    background :#606060;
+                    width: 1px;
+                    height: 8px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 8px;
+                    margin-bottom: 2px;
+                }
+                &::after {
+                    content: " ";
+                    background :#606060;
+                    width: 1px;
+                    height: 12px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 2px;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+  }
+  .scrolling-box {
+    background: #2e2e2e;
+    height: 100%;
+    width: auto;
+    overflow-x: hidden;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    // height: 128px;
+    z-index: 3;
+    position: relative;
+    .title-box {
+        border-right: 2px solid #ffffff;
+        background: #000000;
+        position: relative;
+        z-index: 1;
+        font-size: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 16px 48px;
+        height: 100%;
+    }
+    .scrolling-text {
+        display: inline-block;
+        // vertical-align: middle;
+        // width: 100%;
+        font-size: 3rem;
+        font-weight: 700;
+        padding: 16px 48px;
+        span {
+            animation: scroll $animationSpeed linear infinite;
+            // display: flex;
+            width: 100%;
+            display: inline-block;
+            white-space: nowrap;
+            @include hoverPause();
+        }
+    }
+  }
+  //slideshow
+  @keyframes moveSlideshow {
+    100% { 
+      transform: translateX(-100%);  
+    }
+  }
+  .slide-box {
+    max-width: 100vw;
+    transform: translate3d(0px, 0px, 0px);
+    overflow-x: hidden;
+    padding: 7.5rem 0px 7.5rem;
+  }
+  .carousel-wrap {
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    transform: translate3d(0px, 0px, 0px);
+    width: calc(8 * 450px);
+    animation: 50s linear 0s infinite normal none running moveSlideshow;
+    @include hoverPause();
+  }
+  .carousel-item {
+    margin: 0px 1rem;
+    min-width: 800px;
+    position: relative;
+    height: max-content;
+    .carousel-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      h3 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .item-price {
+        // position: absolute;
+        // left: 50%;
+        // transform: translate(-50%, 50%);
+        margin: 20px auto 0 auto;
+      }
+      .preOrder-btn {
+        padding: 9px 10px;
+        display: block;
+        background: red;
+        max-width: 150px;
+        margin: 20px auto 0 auto;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: .8rem;
+      }
+    }
+    &:hover {
+      &::before{
+        content: "";
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.24);
+        opacity: 1;
+      }
+      .carousel-title {
+        opacity: 1;
+      }
+    }
+  }
+
+.carousel-item {
+  &:nth-child(odd){
+    border: 1px solid red;
+    margin-top: 2rem;
+    box-shadow: 0px 10px 50px 5px #00000014;
+  }
+}
+  
