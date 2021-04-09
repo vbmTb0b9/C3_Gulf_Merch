@@ -1,4 +1,4 @@
-html { font-family: 'Helvetica Neue'; scroll-behavior: smooth;}
+html { font-family: 'Graphik'; scroll-behavior: smooth;}
 * {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -12,7 +12,7 @@ html { font-family: 'Helvetica Neue'; scroll-behavior: smooth;}
   
   body {
     height: 100%;
-    background-color: #2E2E2E;
+    background-color: #000000;
     color: #ffffff;
   }
 
@@ -22,6 +22,18 @@ html { font-family: 'Helvetica Neue'; scroll-behavior: smooth;}
       -moz-animation-play-state: paused;
       -o-animation-play-state: paused;
       animation-play-state: paused;
+    }
+  }
+
+  @mixin respond($breakpoint) {
+    @if($breakpoint == lg)  {
+        @media (max-width: 1440px) { @content }
+      }
+    @if($breakpoint == md)  {
+      @media (max-width: 1024px) { @content }
+    }
+    @if($breakpoint == s,)  {
+      @media (max-width: 480px) { @content }
     }
   }
 
@@ -37,7 +49,7 @@ html { font-family: 'Helvetica Neue'; scroll-behavior: smooth;}
       animation-iteration-count: infinite;
       transform-origin: 50% 50%;
   }
-  @keyframes "scrollAnimate" {
+  @keyframes scrollAnimate {
 	0% {
 		transform: translate(0px,0px);
 	}
@@ -59,22 +71,32 @@ $animationSpeed: 30s;
 // Animation
 @keyframes scroll {
 	0% {
-		transform: translateX(70vw);
+		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(-61vw);
+		transform: translateX(calc(-400px * 7));
 	}
 }
   #head {
-    background: url('/img/HeroBanner-Desktop-16_9_1920x1080.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: url('/img/Mockup_GulfConcert_Photobook.png') no-repeat top center fixed;
+    background-size: contain;
     height: 95vh;
     width: auto;
     position: relative;
+    background-color: rgb(224,224,224);
+    @include respond(md) {
+      background: url('/img/Mockup_GulfConcert_Photobook_1024x1366.png') no-repeat top center fixed;
+      background-size: contain;
+    }
+    @include respond(sm) {
+      background: url('/img/Mockup_GulfConcert_Photobook_480x850.png') no-repeat top center fixed;
+      background-size: contain;
+    }
     .scroll-down {
         position: absolute;
         bottom: 0;
         left: 50%;
+        transform: translateX(-50%);
         text-align: center;
         a {
             text-decoration: none;
@@ -107,45 +129,74 @@ $animationSpeed: 30s;
         }
     }
   }
-  .scrolling-box {
-    background: #2e2e2e;
-    height: 100%;
-    width: auto;
-    overflow-x: hidden;
-    border-top: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-    // height: 128px;
-    z-index: 3;
+
+  .slider {
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
     position: relative;
-    .title-box {
-        border-right: 2px solid #ffffff;
-        background: #000000;
-        position: relative;
-        z-index: 1;
-        font-size: 3rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        display: inline-block;
-        padding: 16px 48px;
-        height: 100%;
+    width: 100%;
+    border-top: 1px solid rgb(234, 244, 236);
+    border-bottom: 1px solid rgb(234, 244, 236);
+    display: flex;
+    @include respond(md) {
+      height: auto;
+      flex-wrap: wrap;
     }
-    .scrolling-text {
-        display: inline-block;
-        // vertical-align: middle;
-        // width: 100%;
-        font-size: 3rem;
-        font-weight: 700;
-        padding: 16px 48px;
+    .title-box {
+      font-size: 2rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      display: flex;
+      background: #000000;
+      color: rgb(234, 244, 236);
+      border-right: 1px solid rgb(234, 244, 236);
+      width: max-content;
+      padding: 24px 48px;
+      white-space: nowrap;
+      z-index: 3;
+       @include respond(md){
+        flex: 0 0 100%;
+        border-bottom: 1px solid rgb(234, 244, 236);
         span {
-            animation: scroll $animationSpeed linear infinite;
-            // display: flex;
-            width: 100%;
-            display: inline-block;
-            white-space: nowrap;
-            @include hoverPause();
+          margin: auto;
         }
+       }
+       @include respond(sm){
+         span {
+           font-size: 70%;
+         }
+       }
+    }
+    
+    .slide-track {
+      animation: scroll $animationSpeed linear infinite;
+      display: flex;
+      width: calc(400px * 14);
+      @include respond(md) {
+        flex: 0 0 100%;
+        padding: 24px 48px;
+      }
+      &:hover {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+    }
+    }
+  
+    .slide {
+      height: 100%;
+      width: 400px;
+      margin: 0 1rem;
+      img {
+        top: 50%;
+        transform: translateY(-50%);
+        position: relative;
+      }
     }
   }
+
   //slideshow
   @keyframes moveSlideshow {
     100% { 
@@ -156,20 +207,37 @@ $animationSpeed: 30s;
     max-width: 100vw;
     transform: translate3d(0px, 0px, 0px);
     overflow-x: hidden;
-    padding: 7.5rem 0px 7.5rem;
+    margin: 7.5rem 0px 7.5rem;
   }
+  .carouselTicker {
+    overflow: hidden;
+    float: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .carouselTicker__list {
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+  }
+
   .carousel-wrap {
     height: 100%;
     margin: 0px;
     display: flex;
     transform: translate3d(0px, 0px, 0px);
-    width: calc(8 * 450px);
-    animation: 50s linear 0s infinite normal none running moveSlideshow;
-    @include hoverPause();
+    width: calc(8 * 35%);
+    // animation: 70s linear 0s infinite normal none running moveSlideshow;
+    // @include hoverPause();
   }
   .carousel-item {
     margin: 0px 1rem;
-    min-width: 800px;
+    // min-width: 800px;
     position: relative;
     height: max-content;
     .carousel-title {
@@ -179,10 +247,12 @@ $animationSpeed: 30s;
       transform: translate(-50%, -50%);
       text-align: center;
       opacity: 0;
+      width: 70%;
       h3 {
         font-size: 2.5rem;
-        font-weight: bold;
+        font-weight: 500;
         text-transform: uppercase;
+        line-height: 0.9;
       }
       .item-price {
         // position: absolute;
@@ -193,13 +263,16 @@ $animationSpeed: 30s;
       .preOrder-btn {
         padding: 9px 10px;
         display: block;
-        background: red;
+        background: #cd000a;
         max-width: 150px;
         margin: 20px auto 0 auto;
         color: #ffffff;
         text-decoration: none;
         text-transform: uppercase;
         font-size: .8rem;
+        &:hover {
+          background: #ff000c;
+        }
       }
     }
     &:hover {
@@ -209,8 +282,9 @@ $animationSpeed: 30s;
         z-index: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.24);
+        background: rgba(0, 0, 0, 0.5);
         opacity: 1;
+        left: 0;
       }
       .carousel-title {
         opacity: 1;
@@ -220,9 +294,27 @@ $animationSpeed: 30s;
 
 .carousel-item {
   &:nth-child(odd){
-    border: 1px solid red;
     margin-top: 2rem;
     box-shadow: 0px 10px 50px 5px #00000014;
   }
 }
-  
+
+@include respond(md){
+  .carousel-wrap {
+    width: calc(8 * 92%);
+    .carousel-item {
+      min-width: inherit;
+      .carousel-title{
+        width: 80%;
+        h3 {
+          font-size: 6vw;
+        }
+      }
+    }
+  }
+}
+@include respond(sm) {
+  .slide-box {
+    margin: 2rem 0px 2rem;
+  }
+}
