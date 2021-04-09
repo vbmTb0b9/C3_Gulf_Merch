@@ -355,6 +355,7 @@ body {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  text-align: center;
 }
 
 .carousel-item .carousel-title {
@@ -408,6 +409,24 @@ body {
 
 .carousel-item:hover .carousel-title {
   opacity: 1;
+}
+
+.detail-item {
+  font-size: .725rem;
+  color: #606060;
+  opacity: 0;
+}
+
+@media (max-width: 1024px) {
+  .detail-item {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-item {
+    opacity: 1;
+  }
 }
 
 .carousel-item:nth-child(odd) {

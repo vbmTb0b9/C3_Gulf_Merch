@@ -241,6 +241,7 @@ $animationSpeed: 30s;
     // min-width: 800px;
     position: relative;
     height: max-content;
+    text-align: center;
     .carousel-title {
       position: absolute;
       top: 50%;
@@ -292,7 +293,14 @@ $animationSpeed: 30s;
       }
     }
   }
-
+.detail-item {
+  font-size: .725rem;
+  color:#606060;
+  opacity: 0;
+  @include respond(md) {
+    opacity: 1;
+  }
+}
 .carousel-item {
   &:nth-child(odd){
     margin-top: 2rem;
