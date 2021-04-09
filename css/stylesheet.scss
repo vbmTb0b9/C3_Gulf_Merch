@@ -39,7 +39,7 @@ html { font-family: 'Graphik'; scroll-behavior: smooth;}
 
   .scroll-ico {
       content:" ";
-      background: url('img/double-chevron-down.svg') no-repeat;
+      background: url('../img/double-chevron-down.svg') no-repeat;
       background-size: 100%;
       width: 16px;
       height: 19px;
@@ -78,18 +78,18 @@ $animationSpeed: 30s;
 	}
 }
   #head {
-    background: url('img/Mockup_GulfConcert_Photobook.png') no-repeat top center fixed;
-    background-size: contain;
+    background: url('../img/Mockup_GulfConcert_Photobook.png') no-repeat top center fixed;
+    background-size: cover;
     height: 95vh;
     width: auto;
     position: relative;
     background-color: rgb(224,224,224);
     @include respond(md) {
-      background: url('img/Mockup_GulfConcert_Photobook_1024x1366.png') no-repeat top center fixed;
+      background: url('../img/Mockup_GulfConcert_Photobook_1024x1366.png') no-repeat top center fixed;
       background-size: contain;
     }
     @include respond(sm) {
-      background: url('img/Mockup_GulfConcert_Photobook_480x850.png') no-repeat top center fixed;
+      background: url('../img/Mockup_GulfConcert_Photobook_480x850.png') no-repeat top center fixed;
       background-size: contain;
     }
     .scroll-down {
