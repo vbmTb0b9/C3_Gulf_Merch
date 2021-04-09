@@ -91,6 +91,7 @@ $animationSpeed: 30s;
     @include respond(sm) {
       background: url('../img/Mockup_GulfConcert_Photobook_480x850.png') no-repeat top center fixed;
       background-size: contain;
+      height: 80vh;
     }
     .scroll-down {
         position: absolute;

@@ -131,6 +131,7 @@ body {
   #head {
     background: url("../img/Mockup_GulfConcert_Photobook_480x850.png") no-repeat top center fixed;
     background-size: contain;
+    height: 80vh;
   }
 }
 
